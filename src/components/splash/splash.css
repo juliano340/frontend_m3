@@ -1,0 +1,35 @@
+
+.splashTitle {
+
+    font-size: 50px;
+    font-weight: 600;
+    color: aliceblue;
+}
+
+.containerSplash {
+    background-color: #E74646;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: auto;
+
+}
+
+.containerSplash img {
+    width: 400px;
+    
+    height: auto;
+
+}
+
+.splashTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    
+    height: auto;
+    
+}

@@ -1,0 +1,15 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  
+}
+
+body {
+  background-color: #FFF;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}

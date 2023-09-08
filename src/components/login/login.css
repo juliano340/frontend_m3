@@ -1,0 +1,43 @@
+.containerLogin {
+
+    font-size: 30px;
+    background-color: #E74646;
+    color: aliceblue;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+input:-ms-input-placeholder  {
+    font-size:16px;
+  }
+
+input[type=text] {
+    margin-top: 10px;
+    border: 2px solid rgb(255, 33, 33);
+    border-radius: 4px;
+    padding: 5px;
+    width: 350px;
+    height: 30px;
+    font-size: 20px;
+    justify-content: center;
+  }
+
+  button {
+    margin-top: 10px;
+    border: 2px solid red;
+    border-radius: 4px;
+    padding: 5px;
+    font-size:20px;
+   
+  }
+
+  button:hover {
+    border: 2px solid rgb(68, 149, 47);
+    border-radius: 4px;
+    padding: 5px;
+  }
