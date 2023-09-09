@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import Splash from './components/splash'
 import Login from './components/login';
-import Principal from './components/dashboard';
+import Principal from './components/Principal';
 
 function App() {
 
@@ -20,7 +20,7 @@ function App() {
     // Desativando o timer:
 
     return () => {
-      
+
       clearTimeout(temporizador);
     };
 
@@ -30,47 +30,46 @@ function App() {
 
   const [username, setUserName] = useState(undefined);
 
-  //Estado para a aplicação saber se o usuário respondeu seu nome:
-  
+  //Estado do login:
+
   const [loggedIn, setLoggedIn] = useState(false);
-  
-    // Função para alternar entre as telas de login e próximo componente
 
-    const toggleLogin = (nome) => {
-      setUserName(user.nome);
-      setLoggedIn(!loggedIn);
-    };
+  // Função para alternar entre as telas de login e próximo componente, registra como logado ou irá deslogar:
 
-// Função deslogar:
+  const toggleLogin = (nome) => {
+    setUserName(nome);
+    setLoggedIn(!loggedIn);
+  };
 
-function handleLogout() {
+  // Função deslogar:
 
-  setLoggedIn(!loggedIn);
-  
-}
-  
+  function handleLogout() {
+
+    setLoggedIn(!loggedIn);
+
+  }
 
   return (
-    
+
     <>
 
-      { showSplash ? <Splash/> 
-       : (!loggedIn ? (
-        <Login onLogin={toggleLogin} isLogged={loggedIn} /> /* Passar a função onLogin como propriedade */
-          
+      {showSplash ? <Splash />
+        : (!loggedIn ? (
+          <Login onLogin={toggleLogin} isLogged={loggedIn} /> /* Passar a função onLogin como propriedade */
+
         ) : (
           <>
-          
-          
-          <Principal userName={username} />
+
+
+            <Principal userName={username} onLogout={handleLogout} />
           </>
-          
-        ) 
-        
-       ) 
-    
-    }
-      
+
+        )
+
+        )
+
+      }
+
     </>
   )
 }

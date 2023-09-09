@@ -1,8 +1,8 @@
 .containerLogin {
 
     font-size: 30px;
-    background-color: #E74646;
-    color: aliceblue;
+    background-color: #FFF;
+    color: #E74646;
     height: 100vh;
     width: 100%;
     display: flex;
@@ -18,7 +18,7 @@ input:-ms-input-placeholder  {
 
 input[type=text] {
     margin-top: 10px;
-    border: 2px solid rgb(255, 33, 33);
+    border: 2px solid rgb(148, 146, 146);
     border-radius: 4px;
     padding: 5px;
     width: 350px;
@@ -30,7 +30,7 @@ input[type=text] {
 
   input[type=password] {
     margin-top: 10px;
-    border: 2px solid rgb(255, 33, 33);
+    border: 2px solid rgb(148, 146, 146);
     border-radius: 4px;
     padding: 5px;
     width: 350px;
@@ -41,15 +41,37 @@ input[type=text] {
 
   button {
     margin-top: 10px;
-    border: 2px solid red;
+    border: 2px solid rgb(148, 146, 146);
     border-radius: 4px;
     padding: 5px;
     font-size:20px;
+    width: 100px;
    
   }
 
   button:hover {
-    border: 2px solid rgb(68, 149, 47);
+    border: 2px solid rgb(10, 10, 10);
     border-radius: 4px;
     padding: 5px;
+    background-color: #E74646 ;
+    color: #FFF;
+  }
+
+  .dadosInvalidos {
+    background-color: #E74646;
+    color: #FFF;
+    margin: 10px;
+    display: none;
+    font-size: 18px;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: 5px;
+    
   }

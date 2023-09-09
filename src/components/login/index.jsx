@@ -8,7 +8,7 @@ const Login = ({onLogin, isLogged}) => {
 
     const user = {
         nome: 'Juliano',
-        email: 'juliano340@gmail.com',
+        email: 'juliano',
         senha: '123'
     }
 
@@ -30,37 +30,67 @@ const Login = ({onLogin, isLogged}) => {
     }
 
     const handleLogin = () => {
+        
+
+        if(email === '' || senha === '' || senha === undefined || email === undefined) {
+
+            
+            var aviso = document.querySelector('.dadosInvalidos');
+            aviso.innerHTML = "Preencha os campos de e-mail e senha!"
+            aviso.style.display = 'block';
+            setTimeout(() => {
+                
+                aviso.style.display = 'none';
+              }, 1500);
+            return;
+        }
 
         if (email === user.email && senha === user.senha ) {
             
             onLogin(user.nome);
+
         } else {
-            alert('usuário inválido!')
+            
+            var aviso = document.querySelector('.dadosInvalidos');
+            aviso.innerHTML = "Usuário ou senha inválidos!"
+            aviso.style.display = 'block';
             setEmail('');
             setSenha('');
+            setTimeout(() => {
+                
+                aviso.style.display = 'none';
+              }, 1500);
         }
 
     }
    
 
-    const handleLoginClick = () => {
-         
-        // Quando o botão for clicado, chama a função onLogin com o nome como argumento
-        onLogin(nome);
+    const handleEnterKeyPress = (e) => {
+        if (e.key === 'Enter') {
+          // Se a tecla Enter for pressionada, clique no botão "Enviar"
+          handleLogin();
+        }
       };
+
 
     return (
 
        
         <div className="containerLogin">
             
+            
             { !isLogged && (
                 <>
+                <div className="container">
+
                 <h3>LOGIN</h3>
                 <form action=''></form>
                 <input value={email} required type="text" name="email" id="email" placeholder='E-mail' onChange={guardaEmail} />
-                <input value={senha} required type="password" name="senha" id="senha" placeholder='Senha' onChange={guardaSenha} />
+                <input value={senha} required type="password" name="senha" id="senha" placeholder='Senha' onChange={guardaSenha} onKeyPress={handleEnterKeyPress} />
+                <div className="dadosInvalidos">Usuário ou senha inválidos!</div>
+                
                 <button onClick={handleLogin}>Entrar</button>
+                </div>
              </>
               ) }
         </div>
