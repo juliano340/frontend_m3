@@ -27,6 +27,18 @@ input[type=text] {
     justify-content: center;
   }
 
+
+  input[type=password] {
+    margin-top: 10px;
+    border: 2px solid rgb(255, 33, 33);
+    border-radius: 4px;
+    padding: 5px;
+    width: 350px;
+    height: 30px;
+    font-size: 20px;
+    justify-content: center;
+  }
+
   button {
     margin-top: 10px;
     border: 2px solid red;

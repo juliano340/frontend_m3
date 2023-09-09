@@ -1,22 +1,47 @@
 import React, { useState } from 'react'
 import './login.css'
 
-const Login = ({onLogin}) => {
+const Login = ({onLogin, isLogged}) => {
 
-    let valorDigitado
+    let valorEmail;
+    let valorSenha;
 
-    const [nome, setNome] = useState(undefined);
+    const user = {
+        nome: 'Juliano',
+        email: 'juliano340@gmail.com',
+        senha: '123'
+    }
 
-  
+    const [email, setEmail] = useState(undefined);
+    const [senha, setSenha] = useState(undefined);
 
-    //Salva o valor da input na variavel:
+  //Salva o valor da input email na variavel valorEmail:
 
-    const validaNome = (event) => {
+    const guardaEmail = (event) => {
 
-        valorDigitado = event.target.value;
+      setEmail(event.target.value);
+    }
 
+     //Salva o valor da input senha na variavel valorSenha:
+
+     const guardaSenha = (event) => {
+
+        setSenha(event.target.value);
+    }
+
+    const handleLogin = () => {
+
+        if (email === user.email && senha === user.senha ) {
+            
+            onLogin(user.nome);
+        } else {
+            alert('usuário inválido!')
+            setEmail('');
+            setSenha('');
+        }
 
     }
+   
 
     const handleLoginClick = () => {
          
@@ -29,20 +54,15 @@ const Login = ({onLogin}) => {
        
         <div className="containerLogin">
             
-            {nome === '' || nome === undefined ? (
+            { !isLogged && (
                 <>
-                <h1>Seu nome?</h1>
-                <input value={nome} type="text" name="nome" id="nome" placeholder='Seu nome...' onChange={validaNome} />
-                <button onClick={() => setNome(valorDigitado)}>Enviar!</button>
+                <h3>LOGIN</h3>
+                <form action=''></form>
+                <input value={email} required type="text" name="email" id="email" placeholder='E-mail' onChange={guardaEmail} />
+                <input value={senha} required type="password" name="senha" id="senha" placeholder='Senha' onChange={guardaSenha} />
+                <button onClick={handleLogin}>Entrar</button>
              </>
-            ) : (
-                <>
-                <h1>Olá, {nome}! </h1>
-                <h2>😺</h2>
-                     <p>Vamos começar?</p>
-                     <button onClick={handleLoginClick}>Bora!</button>
-                     </>
-            )}
+              ) }
         </div>
 
 

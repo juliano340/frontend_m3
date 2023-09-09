@@ -37,7 +37,7 @@ function App() {
     // Função para alternar entre as telas de login e próximo componente
 
     const toggleLogin = (nome) => {
-      setUserName(nome);
+      setUserName(user.nome);
       setLoggedIn(!loggedIn);
     };
 
@@ -56,7 +56,7 @@ function handleLogout() {
 
       { showSplash ? <Splash/> 
        : (!loggedIn ? (
-        <Login onLogin={toggleLogin}/> /* Passar a função onLogin como propriedade */
+        <Login onLogin={toggleLogin} isLogged={loggedIn} /> /* Passar a função onLogin como propriedade */
           
         ) : (
           <>
